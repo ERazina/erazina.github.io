@@ -8,34 +8,11 @@
     "location": "Saint-Petersburg, Russia",
     "skills": "Skills",
     "title": "I am Elina Razina.",
-    "about1": "I am a Frontend Developer located in Saint-Petersburg, Russia. I currently work as a Frontend Developer for Samolet, located in Saint-Petersburg.",
     "phone": "phone",
     "email": "email",
     "adress": "adress",
     "social": "social",
     "download": "Download CV",
     "in_touch": "Contact me",
-    "experience": {
-        "experience": "Experience",
-        "description": "I partner with startups, organizations and Fortune 500 companies to build digital products that help clients overcome challenges and create lasting connections with millions of people every day.",
-        "work1": {
-            "frontend developer": "Frontend Developer",
-            "Samolet": "Samolet",
-            "date": "December, 2022 - Present",
-            "responsibilities": "I developed several financial application for the internal company use."
-        },
- "work2": {
-    "frontend developer": "Frontend Developer",
-    "employeer": "DataArt",
-    "date": "June 2019 - June 2022",
-    "responsibilities": "I developed several applications for European and American clients - multilanguage site, roadmap application."
-        },
-    "work3": {
-        "frontend developer": "Frontend Developer",
-        "employeer": "MTS",
-        "date": "June 2019 - June 2022",
-        "responsibilities": "I developed several applications for European and American clients - multilanguage site, roadmap application."
-        }
-    },
     "copyright": "Copyright"
   }
