@@ -470,15 +470,15 @@
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    alert("Message sent successfully!");
+                    console.log("Message sent successfully!");
                     form.reset(); 
                 } else {
-                    alert("Error sending message!");
+                    console.log("Error sending message!");
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert("Error sending message!");
+                console.log("Error sending message!");
             });
         });
     </script>
