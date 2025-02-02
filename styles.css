@@ -1,0 +1,182 @@
+/* Basic styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+h1, h2, p {
+    margin: 0 0 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 24px;
+}
+
+.hero p {
+    font-size: 16px;
+}
+
+.hero .btn {
+    margin-top: 20px;
+}
+
+/* Projects Section */
+.projects {
+    padding: 40px 0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.project-info {
+    margin-top: 15px;
+}
+
+.project-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+.project-info .tags {
+    margin-top: 10px;
+}
+
+.project-info .tag {
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+/* Skills Section */
+.skills {
+    padding: 40px 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.skill-card {
+    text-align: center;
+}
+
+.skill-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Media Queries for larger screens (tablet and desktop) */
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

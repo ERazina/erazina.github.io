@@ -1,4 +1,7 @@
 User-agent: *
-Disallow:
-Allow: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Allow: /
+
 Sitemap: https://erazina.github.io/sitemap.xml

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Elina Razina - Frontend Developer with experience in creating modern web applications.">
+    <meta name="keywords" content="frontend, developer, React, JavaScript, portfolio">
+    <meta name="author" content="Elina Razina">
+    <title>Portfolio of Elina Razina</title>
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero container" id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm Elina Razina</h1>
+            <p>Frontend developer with experience in creating modern web applications and interfaces. I love solving complex problems and building products that users love.</p>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+    </section>
+
+    <section class="projects container" id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="/api/placeholder/400/200" alt="E-commerce Website project" class="project-image">
+                <div class="project-info">
+                    <h3>E-commerce Website</h3>
+                    <p>Creating a store with payment system integration and responsive design.</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills container" id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🖥️</div>
+                <p>React</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <p>JavaScript</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact container" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Elina Razina</p>
+        <div class="social-links">
+            <a href="https://github.com/erazina" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/elina-razina/" target="_blank">LinkedIn</a>
+            <a href="https://t.me/elina_razina" target="_blank">Telegram</a> <!-- Added Telegram link -->
+        </div>
+    </footer>
+</body>
+</html>
