@@ -423,7 +423,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" required>
@@ -447,7 +447,7 @@
 
         const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage`;
     
-        const form = document.getElementById("contact-form");
+        const form = document.getElementById("contactForm");
         form.addEventListener("submit", function(event) {
             event.preventDefault();
     
