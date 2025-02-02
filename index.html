@@ -441,6 +441,10 @@
         </div>
     </section>
     <script>
+
+        const chatId = 'your_chat_id';
+        const token = '7945304342:AAG3C0gvU7K2n7ufJ8QOPTJyrojrAyrHboU';
+
         const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage`;
     
         const form = document.getElementById("contact-form");
@@ -467,7 +471,7 @@
             .then(data => {
                 if (data.ok) {
                     alert("Message sent successfully!");
-                    form.reset(); // Очищаем форму
+                    form.reset(); 
                 } else {
                     alert("Error sending message!");
                 }
@@ -483,9 +487,9 @@
         <div class="container">
             <p>© 2025 Portfolio. All rights reserved.</p>
             <div class="social-links">
-                <a href="#">Twitter</a>
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
+                <a href="https://github.com/ERazina">GitHub</a>
+                <a href="https://www.linkedin.com/in/elina-razina/">LinkedIn</a>
+                <a href="https://t.me/Elina_Razina">Telegram</a>
             </div>
         </div>
     </footer>
