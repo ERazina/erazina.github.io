@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project "Electronic Document System" - Portfolio</title>
+    <link rel="stylesheet" href="styles_3.css" />
+    <style>
+      :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --secondary: #10b981;
+        --dark: #1f2937;
+        --light: #f9fafb;
+        --gray: #6b7280;
+        --gray-light: #e5e7eb;
+        --text: #374151;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+      }
+
+      body {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Заглушки для шапки и подвала (скрыты, так как у вас уже есть) */
+      .header-placeholder,
+      .footer-placeholder {
+        display: none;
+      }
+
+      /* Основная секция проекта */
+      .project-hero {
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      }
+
+      .project-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+      }
+
+      .project-category {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--primary);
+        padding: 6px 16px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+
+      .project-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 24px;
+        line-height: 1.2;
+      }
+
+      .project-description {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin-bottom: 40px;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        margin-bottom: 60px;
+      }
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .meta-label {
+        font-size: 14px;
+        color: var(--gray);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .meta-value {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .project-image-main {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        margin-bottom: 100px;
+      }
+
+      .project-image-main img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Секция обзора */
+      .project-overview {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto 60px;
+        text-align: center;
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+        align-items: center;
+      }
+
+      .overview-content h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 24px;
+      }
+
+      .overview-content p {
+        font-size: 1.125rem;
+        color: var(--text);
+        margin-bottom: 24px;
+      }
+
+      .overview-list {
+        margin: 30px 0;
+        list-style: none;
+      }
+
+      .overview-list li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 16px;
+        font-size: 1.125rem;
+      }
+
+      .overview-list li:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 18px;
+        height: 18px;
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 50%;
+      }
+
+      .overview-list li:after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        background-color: var(--primary);
+        border-radius: 50%;
+      }
+
+      .overview-image {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .overview-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Секция характеристик */
+      .project-features {
+        padding: 100px 0;
+        background-color: white;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .feature-card {
+        background-color: var(--light);
+        border-radius: 16px;
+        padding: 40px 30px;
+        transition: all 0.3s ease;
+        border: 1px solid var(--gray-light);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      }
+
+      .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--primary);
+        margin-bottom: 24px;
+      }
+
+      .feature-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 16px;
+      }
+
+      .feature-card p {
+        color: var(--gray);
+        margin-bottom: 0;
+      }
+
+      /* Секция процесса */
+      .project-process {
+        padding: 100px 0;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+
+      .process-step {
+        position: relative;
+        text-align: center;
+      }
+
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .process-step:not(:last-child):after {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 60%;
+        width: 80%;
+        height: 2px;
+        background-color: var(--gray-light);
+        z-index: 1;
+      }
+
+      .process-step h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 16px;
+      }
+
+      .process-step p {
+        font-size: 1rem;
+        color: var(--gray);
+      }
+
+      .process-timeline {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline-item {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .timeline-dot {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .timeline-dot:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: 2px;
+        height: 100%;
+        background-color: var(--gray-light);
+      }
+
+      .timeline-dot:after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 8px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        z-index: 2;
+      }
+
+      .timeline-item:last-child .timeline-dot:before {
+        height: 10px;
+      }
+
+      .timeline-content {
+        padding-bottom: 20px;
+      }
+
+      .timeline-date {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .timeline-content h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 16px;
+      }
+
+      .timeline-content p {
+        font-size: 1.125rem;
+        color: var(--text);
+        margin-bottom: 0;
+      }
+
+      /* Секция галереи */
+      .project-gallery {
+        padding: 100px 0;
+        background-color: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .gallery-item {
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 4/3;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      /* Секция результатов */
+      .project-results {
+        padding: 100px 0;
+      }
+
+      .results-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .results-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 60px;
+        width: 100%;
+      }
+
+      .result-card {
+        background-color: white;
+        border-radius: 16px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        border: 1px solid var(--gray-light);
+      }
+
+      .result-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 16px;
+        line-height: 1;
+      }
+
+      .result-label {
+        font-size: 1.125rem;
+        color: var(--gray);
+      }
+
+      .testimonial {
+        max-width: 800px;
+        background-color: white;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        margin-top: 60px;
+        text-align: center;
+        position: relative;
+      }
+
+      .testimonial:before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 5rem;
+        font-weight: 700;
+        color: rgba(59, 130, 246, 0.1);
+        line-height: 1;
+      }
+
+      .testimonial-text {
+        font-size: 1.5rem;
+        font-style: italic;
+        color: var(--dark);
+        margin-bottom: 30px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .author-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 4px;
+      }
+
+      .author-info p {
+        font-size: 0.875rem;
+        color: var(--gray);
+      }
+
+      /* Секция "Другие проекты" */
+      .other-projects {
+        padding: 100px 0;
+        background-color: var(--light);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .project-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-card-image img {
+        transform: scale(1.05);
+      }
+
+      .project-card-content {
+        padding: 24px;
+      }
+
+      .project-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 8px;
+      }
+
+      .project-card p {
+        font-size: 0.875rem;
+        color: var(--gray);
+        margin-bottom: 16px;
+      }
+
+      .project-card-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        gap: 8px;
+        font-size: 0.875rem;
+      }
+
+      .project-card-link svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.2s ease;
+      }
+
+      .project-card-link:hover svg {
+        transform: translateX(4px);
+      }
+
+      /* Секция CTA */
+      .project-cta {
+        padding: 100px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .cta-content h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      .cta-content p {
+        font-size: 1.25rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .button-primary {
+        display: inline-block;
+        background-color: white;
+        color: var(--primary);
+        padding: 16px 32px;
+        border-radius: 100px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .button-primary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .button-secondary {
+        display: inline-block;
+        background-color: transparent;
+        color: white;
+        padding: 16px 32px;
+        border-radius: 100px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid white;
+        transition: all 0.3s ease;
+      }
+
+      .button-secondary:hover {
+        background-color: white;
+        color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Адаптивность */
+      @media (max-width: 1024px) {
+        .project-title {
+          font-size: 3rem;
+        }
+
+        .features-grid,
+        .process-steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .process-step:not(:last-child):after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .project-title {
+          font-size: 2.5rem;
+        }
+
+        .overview-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .results-cards,
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .process-steps {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .gallery-item.large {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .project-title {
+          font-size: 2rem;
+        }
+
+        .project-meta {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .features-grid,
+        .results-cards,
+        .gallery-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .timeline-dot:before {
+          left: 8px;
+        }
+
+        .timeline-dot:after {
+          left: 0;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+      }
+
+      /* Анимации */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <nav class="container">
+          <div class="logo">Portfolio</div>
+          <div class="nav-links">
+            <a href="https://erazina.github.io/">Home</a>
+            <a href="https://erazina.github.io/#projects">Projects</a>
+            <a href="https://erazina.github.io/#skills">Skills</a>
+            <a href="https://erazina.github.io/#contact">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+    <!-- Основное содержимое страницы проекта -->
+    <main>
+      <!-- Секция заголовка проекта -->
+      <section class="project-hero">
+        <div class="container">
+          <div class="project-header animate">
+            <span class="project-category">Frontend development</span>
+            <h1 class="project-title">Client and Corporate Service Platform</h1>
+            <!-- <p class="project-description">Инновационный проект, сочетающий современные технологии и экологичные решения для устойчивого будущего.</p> -->
+            <p class="project-description">
+                A centralized SPA web application integrating 20+ internal MTS systems (HR, finance, document management, etc.) into a single, user-friendly interface. The platform provides seamless Single Sign-On (SSO) access and intuitive navigation, significantly reducing onboarding time and enhancing daily operational efficiency.
+            </p>
+          </div>
+
+          <div class="project-meta animate">
+            <div class="meta-item">
+              <span class="meta-label">Client</span>
+              <span class="meta-value">MTS - Russia’s #1 mobile operator</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Dates</span>
+              <span class="meta-value">2017-2019</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">My role</span>
+              <span class="meta-value">Frontend Developer</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tech stack</span>
+              <span class="meta-value"
+                > Angular, TypeScript, SCSS, Git, Jenkins (CI/CD)</span
+              >
+            </div>
+          <div class="project-image-main animate">
+            <img src="./mts3.png" alt="Project image" />
+          </div>
+        </div>
+      </section>
+
+            <!-- Секция обзора -->
+            <section class="project-overview">
+              <div class="container">
+                <div class="overview-grid">
+                  <div class="overview-content animate">
+                    <h3>About project</h3>
+                    <p>
+                        This internal web platform was developed for MTS employees as a single entry point to over 20 different corporate systems (HR, finance, legal, document management, etc.). The primary objective was to replace fragmented access with a centralized and intuitive interface, eliminating the need to log into and navigate through multiple separate systems.
+
+                        By consolidating various services into one cohesive frontend, the platform significantly improved efficiency, ensured SSO-based access, and offered a personalized experience with widgets, dashboards, and service shortcuts.
+                    </p>
+                  </div>
+                  <div class="overview-image animate">
+                    <img src="./mts1.png" alt="Project overview" />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-hero">
+                <div class="container">
+                  <!-- <div class="overview-grid"> -->
+                    <div class="overview-content animate">
+                      <h3>My role</h3>
+                      <!-- <p>
+                        I was responsible not only for implementing interface components, but also for making architectural decisions that influenced the stability and scalability of the system. I actively collaborated with designers, analysts, and backend developers to ensure seamless integration and a smooth user experience.
+                      </p> -->
+                      <h3>My project contribution</h3>
+                      <ul class="overview-list">
+                        <li>
+                            Designed and integrated a bank interaction module, enabling secure and seamless communication with MTS Bank services
+                        </li>
+                        <li>Built interactive components and logic to display real-time statistics on mobile data usage and call activity</li>
+                        <li>Connected and configured application metrics tracking, improving observability and enabling data-driven decision-making</li>
+                        <li>Developed a visual usage indicator for mobile traffic and minutes, clearly showing how much has been used and how much remains — improving user awareness and reducing support requests by 25%</li>
+                        <li>Actively participated in code reviews, ensuring code quality and consistency across the team</li>  
+                        <li>Conducted live demos of new features to stakeholders and internal customers</li>
+                        <li>Took part in feature planning discussions, helping shape technical solutions and estimate development efforts collaboratively</li>
+                    
+                    </ul>
+                    </div>
+                    <!-- <div class="overview-image animate">
+                      <img src="sed1.png" alt="Обзор проекта" />
+                    </div> -->
+                  </div>
+                <!-- </div> -->
+              </section>
+
+    </main>
+    <footer>
+      <div class="container">
+        <p>© 2025 Portfolio. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://github.com/ERazina" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/elina-razina/" target="_blank">LinkedIn</a>
+          <a href="https://t.me/Elina_Razina" target="_blank">Telegram</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
