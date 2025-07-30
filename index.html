@@ -1,344 +1,765 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
-    <title>React Frontend Developer Portfolio | Modern Web Applications</title>
-    <meta
-      name="description"
-      content="Frontend React developer specializing in building modern web applications. Expert in React.js, Redux, TypeScript, and modern JavaScript. Creating responsive and performant user interfaces."
-    />
-    <meta
-      name="keywords"
-      content="react developer, frontend developer, react.js expert, frontend engineer, web developer, react applications, single page applications, frontend development, typescript developer, redux expert, react hooks, react components, modern javascript, frontend architecture"
-    />
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="React Frontend Developer" />
-    <meta
-      property="og:description"
-      content="Creating modern web applications with React.js"
-    />
-    <meta property="og:type" content="website" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Schema.org markup -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Frontend React Developer",
-        "jobTitle": "Frontend Developer",
-        "knowsAbout": [
-          "React.js",
-          "TypeScript",
-          "Redux",
-          "Frontend Development",
-          "JavaScript ES6+",
-          "React Hooks",
-          "Frontend Architecture",
-          "Web Performance"
-        ]
+    <title>Элина Разина - Frontend разработчик</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    </script>
-    <link rel="stylesheet" href="styles_3.css" />
-    <title>Web Developer Portfolio</title>
+
+      :root {
+        --primary: #6366f1;
+        --primary-dark: #4f46e5;
+        --secondary: #f59e0b;
+        --bg-dark: #0f0f23;
+        --bg-darker: #070720;
+        --text-light: #e2e8f0;
+        --text-muted: #94a3b8;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --border: rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Animated Background */
+      .bg-animated {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+      }
+
+      .bg-animated::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        mask: radial-gradient(circle, transparent 50%, black 80%);
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        backdrop-filter: blur(20px);
+        background: rgba(15, 15, 35, 0.8);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 2rem;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--text-light), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 1s ease-out 0.4s both;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      /* Sections */
+      section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+      }
+
+      .project-card:hover::before {
+        opacity: 0.1;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+      }
+
+      .project-description {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .tech-stack {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .tech-tag {
+        background: rgba(99, 102, 241, 0.2);
+        color: var(--primary);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        border: 1px solid rgba(99, 102, 241, 0.3);
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .project-link:hover {
+        color: var(--secondary);
+        transform: translateX(5px);
+      }
+
+      /* Skills Section */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-category {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+        background: rgba(99, 102, 241, 0.1);
+      }
+
+      .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .skill-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+      }
+
+      .skill-list {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.8;
+      }
+
+      /* Contact Section */
+      .contact {
+        background: var(--bg-darker);
+        padding: 5rem 2rem;
+        text-align: center;
+        border-radius: 30px;
+        margin: 2rem;
+        border: 1px solid var(--border);
+        margin: 0 auto;
+        margin-bottom: 2rem;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 1rem 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+      }
+
+      .contact-link:hover {
+        color: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding: 0 1rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .contact-links {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      /* Scroll Indicator */
+      .scroll-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(99, 102, 241, 0.3);
+        z-index: 1001;
+      }
+
+      .scroll-progress {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        width: 0%;
+        transition: width 0.1s ease;
+      }
+    </style>
   </head>
   <body>
+    <div class="bg-animated"></div>
+    <div class="scroll-indicator">
+      <div class="scroll-progress"></div>
+    </div>
+
     <header>
-      <nav class="container">
-        <div class="logo">Portfolio</div>
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </div>
+      <nav>
+        <div class="logo">ЭР</div>
+        <ul class="nav-links">
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#skills">Навыки</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home"
-      class="relative text-white h-screen flex items-center justify-center overflow-hidden"
-    >
-      <!-- Фоновое изображение -->
-      <div class="absolute inset-0">
-        <img
-          src="./me1.jpg"
-          alt="Background"
-          class="w-full h-full object-cover transform scale-x-[-1]"
-          
-        />
-        <div class="absolute inset-0 bg-black bg-opacity-80"></div>
-      </div>
-
-      <!-- Затемнение фона -->
-      <!-- <div class></div> -->
-
-      <!-- Контент -->
-      <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <h1 class="text-6xl md:text-7xl tracking-wide uppercase leading-tight">
-          Elina Razina
-        </h1>
-        <p class="text-2xl md:text-3xl mt-10 font-light tracking-wide opacity-90">
-          Software Engineer in Web (React, TypeScript) (7+ years exp)
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Элина Разина</h1>
+        <p class="subtitle">
+          Frontend разработчик, создающий современные веб-приложения с фокусом
+          на UX и производительность
         </p>
-        <!-- <p class="flex items-center mt-6 space-x-2 pb-4">
-          <svg
-            class="w-5 h-5"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="#fff"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            ></path></svg>Vietnam
-        </p> -->
-        <a
-          href="./resume.pdf"
-          download
-          class="mt-20 px-6 py-3 bg-white text-gray-700 text-lg font-bold rounded-lg shadow-lg hover:bg-gray-200 transition pulse-button"
-          >Get a CV</a>
+        <a href="#projects" class="cta-button">Посмотреть работы</a>
       </div>
     </section>
 
-    <!-- <section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>React Frontend Developer</h1>
-          <p>
-            I create beautiful and functional websites and applications that
-            help businesses grow online.
+    <section id="projects">
+      <h2 class="section-title fade-in">Проекты</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <h3 class="project-title">E-commerce Dashboard</h3>
+          <p class="project-description">
+            Комплексная админ-панель для интернет-магазина с аналитикой в
+            реальном времени, управлением товарами и интеграцией с платежными
+            системами.
           </p>
-          <a href="#contact" class="btn">Get in touch</a>
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Redux Toolkit</span>
+            <span class="tech-tag">Material-UI</span>
+            <span class="tech-tag">Chart.js</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Демо →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
         </div>
-      </div>
-    </section> -->
 
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Key Projects</h2>
-        <div class="project-grid">
-          <a class="project-card" href="https://erazina.github.io/edms">
-            <div class="project-info">
-              <!-- <img src="./sed1.png" alt="Project edms" class="project-image"> -->
-              <h3>
-                Enterprise-level electronic document management system (EDMS)
-                with high-load architecture
-              </h3>
-              <p>
-                I developer enterprise-level electronic document management
-                system (EDMS) with high-load architecture, handling up to more
-                than 100 000 concurrent users and processing several thousands
-                transactions per second, featuring complex functionality and
-                multiple distributed roles.
-              </p>
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Styled Components</span>
-                <span class="tag">mobX</span>
-                <span class="tag">Python</span>
-                <span class="tag">CI/CD</span>
-                <span class="tag">GIT</span>
-              </div>
-            </div>
-          </a>
+        <div class="project-card fade-in">
+          <h3 class="project-title">Task Management App</h3>
+          <p class="project-description">
+            Приложение для управления задачами с drag-and-drop интерфейсом,
+            командной работой и интеграцией с календарем.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Prisma</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">React DnD</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Демо →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
 
-          <a class="project-card" href="http://erazina.github.io/ui-kit">
-            <!-- <img src="./ui_kit.png" alt="UI kit image" class="project-image"> -->
-            <div class="project-info">
-              <h3>UI Kit</h3>
-              <p>
-                I developed a custom component library for the company, enabling
-                consistent and efficient UI design across multiple
-                enterprise-level applications. The library supports over 100+
-                reusable components and is used by several teams of more than
-                1000 developers, streamlining development processes and ensuring
-                uniformity across 200 platforms and products.
-              </p>
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Storybook</span>
-                <span class="tag">Jest</span>
-                <span class="tag">CI/CD</span>
-                <span class="tag">GIT</span>
-              </div>
-            </div>
-          </a>
+        <div class="project-card fade-in">
+          <h3 class="project-title">Learning Platform</h3>
+          <p class="project-description">
+            Образовательная платформа с видеоуроками, интерактивными заданиями и
+            системой прогресса для изучения программирования.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Socket.io</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Демо →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
 
-          <a class="project-card" href="https://erazina.github.io/mts">
-            <!-- <img src="/api/placeholder/400/200" alt="Project 2" class="project-image"> -->
-            <div class="project-info">
-              <h3>Client and Corporate Service Platform</h3>
-              <p>
-                The Client and Corporate Service Platform is a robust,
-                enterprise-level system built to support MTS employees who
-                handle service requests for both individual and corporate
-                clients across Russia and internationally. The platform is
-                designed to manage millions of customer interactions annually,
-                processing thousands of inquiries per minute, and is essential
-                for maintaining MTS's reputation for top-tier customer service.
-              </p>
-              <div class="tags">
-                <span class="tag">Angular</span>
-                <span class="tag">Material UI</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">CI/CD</span>
-                <span class="tag">GIT</span>
-              </div>
-            </div>
-          </a>
+        <div class="project-card fade-in">
+          <h3 class="project-title">Real Estate Portal</h3>
+          <p class="project-description">
+            Портал недвижимости с картами, фильтрацией, виртуальными турами и
+            системой бронирования просмотров.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">Apollo</span>
+            <span class="tech-tag">Mapbox</span>
+            <span class="tech-tag">Styled Components</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Демо →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">⚛️</div>
-                    <h3>React.js</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🏷️</div>
-                    <h3>TypeScript</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🔄</div>
-                    <h3>MobX, Redux</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🎨</div>
-                    <h3>Styled Components</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📱</div>
-                    <h3>Responsive Design</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🧪</div>
-                    <h3>Jest</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" width="50">
-                    </div>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="./static/media/next.png" alt="Next.js" width="50">
-                    </div>
-                    <h3>Next.js</h3>
-                </div>
+    <section id="skills">
+      <h2 class="section-title fade-in">Навыки</h2>
+      <div class="skills-grid">
+        <div class="skill-category fade-in">
+          <div class="skill-icon">⚛️</div>
+          <h3 class="skill-title">Frontend</h3>
+          <div class="skill-list">
+            React • Next.js • TypeScript<br />
+            Redux • Zustand • React Query<br />
+            Tailwind CSS • Styled Components<br />
+          </div>
         </div>
-    </section> -->
 
-    <section class="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-          Skills
-        </h2>
-
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Frontend -->
-          <div class="bg-white rounded-2xl shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-4 text-blue-600">Frontend</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>React</li>
-              <li>Redux / mobX / React Query</li>
-              <li>Next.js</li>
-              <li>TypeScript</li>
-              <li>JavaScript</li>
-              <li>JSX</li>
-              <li>Styled Components</li>
-              <li>Tailwind</li>
-              <li>i18n (localization)</li>
-              <li>SCSS</li>
-              <li>HTML5</li>
-              <li>CSS3</li>
-            </ul>
+        <div class="skill-category fade-in">
+          <div class="skill-icon">🛠️</div>
+          <h3 class="skill-title">Инструменты</h3>
+          <div class="skill-list">
+            Webpack • Vite • ESLint<br />
+            Prettier • Husky • Jest<br />
+            Storybook<br />
+            Git • GitHub Actions
           </div>
+        </div>
 
-          <!-- Tools -->
-          <div class="bg-white rounded-2xl shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-4 text-blue-600">Tools</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>Jest</li>
-              <li>Docker</li>
-              <li>GitLab / Github</li>
-              <li>CI/CD (Gitlab)</li>
-              <li>Jira</li>
-            </ul>
+        <div class="skill-category fade-in">
+          <div class="skill-icon">☁️</div>
+          <h3 class="skill-title">Деплой</h3>
+          <div class="skill-list">
+            Vercel • Netlify<br />
+            Docker <br />
+            CI/CD
           </div>
+        </div>
 
-                    <!-- Backend -->
-          <div class="bg-white rounded-2xl shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-4 text-blue-600">Languages</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>English - C1 (daily professional use)</li>
-              <li>German - A2 </li>
-              <li>Russian - native</li>
-            </ul>
+        <div class="skill-category fade-in">
+          <div class="skill-icon">🎨</div>
+          <h3 class="skill-title">Дизайн</h3>
+          <div class="skill-list">
+            Figma<br />
+            UI/UX принципы<br />
+            Адаптивный дизайн<br />
+            Accessibility (a11y)<br />
+            i18next
           </div>
-          <!-- Backend -->
-          <!-- <div class="bg-white rounded-2xl shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-4 text-blue-600">Backend</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>Node.js (Express)</li>
-              <li>Python (scripting)</li>
-            </ul>
-          </div> -->
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Get in Touch</h2>
-        <form class="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
+    <section id="contact" class="contact fade-in">
+      <h2 class="section-title">Давайте создадим что-то крутое</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto">
+        Открыта для интересных проектов и сотрудничества. Если у вас есть идея,
+        которую нужно воплотить в жизнь, или нужна помощь с существующим
+        проектом — давайте обсудим!
+      </p>
+      <div class="contact-links">
+        <a
+          type="email"
+          href="mailto:razina_elina@mail.ru, elina.razina@gmail.com"
+          target="_blank"
+          class="contact-link"
+        >
+          📧 Email
+        </a>
+        <a
+          href="https://t.me/Elina_Razina"
+          target="_blank"
+          class="contact-link"
+        >
+          💬 Telegram
+        </a>
+        <a
+          href="https://github.com/erazina"
+          target="_blank"
+          class="contact-link"
+        >
+          🐱 GitHub
+        </a>
+        <a
+          href="https://linkedin.com/in/elina-razina"
+          target="_blank"
+          class="contact-link"
+        >
+          💼 LinkedIn
+        </a>
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <p>© 2025 Portfolio. All rights reserved.</p>
-        <div class="social-links">
-          <a href="https://github.com/ERazina" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/elina-razina/" target="_blank">LinkedIn</a>
-          <a href="https://t.me/Elina_Razina" target="_blank">Telegram</a>
-        </div>
-      </div>
-    </footer>
+    <script>
+      // Scroll progress indicator
+      function updateScrollProgress() {
+        const scrolled =
+          (window.scrollY /
+            (document.documentElement.scrollHeight - window.innerHeight)) *
+          100;
+        document.querySelector(".scroll-progress").style.width = scrolled + "%";
+      }
+
+      // Fade in animation on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(".fade-in");
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("visible");
+          }
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Header background on scroll
+      function updateHeader() {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(15, 15, 35, 0.95)";
+        } else {
+          header.style.background = "rgba(15, 15, 35, 0.8)";
+        }
+      }
+
+      // Event listeners
+      window.addEventListener("scroll", () => {
+        updateScrollProgress();
+        animateOnScroll();
+        updateHeader();
+      });
+
+      window.addEventListener("load", () => {
+        animateOnScroll();
+      });
+
+      // Add hover effects to project cards
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-10px) scale(1.02)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Typing effect for hero title (optional enhancement)
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      // Initialize typing effect
+      window.addEventListener("load", () => {
+        const heroTitle = document.querySelector(".hero h1");
+        const originalText = heroTitle.textContent;
+        typeWriter(heroTitle, originalText, 150);
+      });
+    </script>
   </body>
 </html>
