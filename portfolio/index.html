@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Элина Разина - Разработка сайтов и приложений, которые приносят прибыль</title>
+    <meta name="description" content="Создаю сайты и веб-приложения, которые увеличивают продажи на 40% за первые 3 месяца. Готовый результат за 2-4 недели.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --bg-dark: #0f0f23;
+            --bg-darker: #070720;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --accent: #ec4899;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .bg-animated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            mask: radial-gradient(circle, transparent 50%, black 80%);
+            animation: float 25s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(120deg); }
+            66% { transform: translateY(15px) rotate(240deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 35, 0.9);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: transparent;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-period {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Case Studies */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .result-metric {
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--success);
+            display: block;
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            color: white;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .step-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .author-info h4 {
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-darker);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-radius: 30px;
+            margin: 2rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .guarantee {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 15px;
+            padding: 1rem 2rem;
+            display: inline-block;
+            color: var(--success);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(99, 102, 241, 0.3);
+            z-index: 1001;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animated"></div>
+    <div class="scroll-indicator">
+        <div class="scroll-progress"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">ЭР</div>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#cases">Кейсы</a></li>
+                <li><a href="#process">Процесс</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contact" class="cta-nav">Обсудить проект</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Увеличиваю продажи на 40% за 3 месяца</div>
+                <h1>Создаю <span class="highlight">сайты и приложения</span>, которые приносят прибыль</h1>
+                <p class="subtitle">Не просто красивый дизайн, а инструмент для роста вашего бизнеса. Готовый результат за 2-4 недели с гарантией качества.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Получить консультацию</a>
+                    <a href="#cases" class="btn-secondary">Посмотреть кейсы</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Успешных проектов</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2-4</span>
+                        <div class="stat-label">Недели до запуска</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <div class="stat-label">Довольных клиентов</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-light);">Результаты клиентов</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 10px;">
+                            <div style="color: var(--success); font-size: 1.5rem; font-weight: bold;">+156%</div>
+                            <div style="color: var(--text-muted); font-size: 0.8rem;">Конверсии</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(245, 158, 11, 0.1); border-radius: 10px;">
+                            <div style="color: var(--secondary); font-size: 1.5rem; font-weight: bold;">+89%</div>
+                            <div style="color: var(--text-muted); font-size: 0.8rem;">Трафика</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">Средние показатели за первые 3 месяца</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title fade-in">Услуги</h2>
+        <p class="section-subtitle fade-in">Полный цикл разработки от идеи до запуска и масштабирования</p>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🚀</div>
+                <h3 class="service-title">Лендинги и корпоративные сайты</h3>
+                <p class="service-description">Сайты, которые продают 24/7. Современный дизайн, быстрая загрузка, SEO-оптимизация и интеграция с CRM.</p>
+                <ul class="service-features">
+                    <li>Адаптивный дизайн для всех устройств</li>
+                    <li>Оптимизация скорости загрузки</li>
+                    <li>SEO-готовая структура</li>
+                    <li>Интеграция с аналитикой</li>
+                    <li>Система управления контентом</li>
+                </ul>
+                <div class="service-price">от 80 000₽</div>
+                <div class="service-period">Срок: 2-3 недели</div>
+                <a href="#contact" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">Заказать</a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">⚡</div>
+                <h3 class="service-title">Веб-приложения на React</h3>
+                <p class="service-description">Сложные интерактивные приложения для автоматизации бизнес-процессов и повышения эффективности команды.</p>
+                <ul class="service-features">
+                    <li>Современные технологии (React, TypeScript)</li>
+                    <li>Пользовательские панели и дашборды</li>
+                    <li>Интеграция с API и базами данных</li>
+                    <li>Система ролей и прав доступа</li>
+                    <li>Масштабируемая архитектура</li>
+                </ul>
+                <div class="service-price">от 150 000₽</div>
+                <div class="service-period">Срок: 3-6 недель</div>
+                <a href="#contact" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">Заказать</a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">🎯</div>
+                <h3 class="service-title">Оптимизация и доработка</h3>
+                <p class="service-description">Улучшение существующих сайтов и приложений. Увеличиваем конверсию, скорость и удобство использования.</p>
+                <ul class="service-features">
+                    <li>Аудит производительности</li>
+                    <li>UX/UI анализ и улучшения</li>
+                    <li>Мобильная оптимизация</li>
+                    <li>A/B тестирование изменений</li>
+                    <li>Техническая поддержка</li>
+                </ul>
+                <div class="service-price">от 40 000₽</div>
+                <div class="service-period">Срок: 1-2 недели</div>
+                <a href="#contact" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">Заказать</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases">
+        <h2 class="section-title fade-in">Кейсы</h2>
+        <p class="section-subtitle fade-in">Реальные результаты для реального бизнеса</p>
+        
+        <div class="cases-grid">
+            <div class="case-card fade-in">
+                <h3 style="color: var(--text-light); margin-bottom: 1rem;">Интернет-магазин мебели</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Создание современного интернет-магазина с удобным каталогом, корзиной и системой оплаты. Интеграция с 1С и складской программой.</p>
+                <div class="case-results">
+                    <div class="result-metric">
+                        <span class="result-number">+234%</span>
+                        <div class="result-label">Рост онлайн-продаж</div>
+                    </div>
+                    <div class="result-metric">
+                        <span class="result-number">+89%</span>
+                        <div class="result-label">Конверсия в покупку</div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">React</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Next.js</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Stripe</span>
+                </div>
+            </div>
+
+            <div class="case-card fade-in">
+                <h3 style="color: var(--text-light); margin-bottom: 1rem;">CRM для стоматологии</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Веб-приложение для управления записями пациентов, ведения карт, контроля оплат и аналитики клиники.</p>
+                <div class="case-results">
+                    <div class="result-metric">
+                        <span class="result-number">-65%</span>
+                        <div class="result-label">Время на админ задачи</div>
+                    </div>
+                    <div class="result-metric">
+                        <span class="result-number">+45%</span>
+                        <div class="result-label">Повторных записей</div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">React</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">TypeScript</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">PostgreSQL</span>
+                </div>
+            </div>
+
+            <div class="case-card fade-in">
+                <h3 style="color: var(--text-light); margin-bottom: 1rem;">Лендинг IT-курсов</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Продающий лендинг для онлайн-школы с интерактивными элементами, калькулятором стоимости и интеграцией с AmoCRM.</p>
+                <div class="case-results">
+                    <div class="result-metric">
+                        <span class="result-number">+156%</span>
+                        <div class="result-label">Конверсия в заявки</div>
+                    </div>
+                    <div class="result-metric">
+                        <span class="result-number">+78%</span>
+                        <div class="result-label">Время на сайте</div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">React</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Framer Motion</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">AmoCRM API</span>
+                </div>
+            </div>
+
+            <div class="case-card fade-in">
+                <h3 style="color: var(--text-light); margin-bottom: 1rem;">Маркетплейс услуг</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Платформа для поиска и заказа бытовых услуг с системой рейтингов, онлайн-оплатой и мобильным приложением.</p>
+                <div class="case-results">
+                    <div class="result-metric">
+                        <span class="result-number">1000+</span>
+                        <div class="result-label">Активных пользователей</div>
+                    </div>
+                    <div class="result-metric">
+                        <span class="result-number">+320%</span>
+                        <div class="result-label">Количество заказов</div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">React</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Node.js</span>
+                    <span style="background: rgba(99, 102, 241, 0.2); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">MongoDB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <h2 class="section-title fade-in">Как я работаю</h2>
+        <p class="section-subtitle fade-in">Прозрачный процесс с контролем на каждом этапе</p>
+        
+        <div class="process-steps">
+            <div class="process-step fade-in">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Анализ и планирование</h3>
+                <p class="step-description">Изучаю ваш бизнес, целевую аудиторию и конкурентов. Составляю техническое задание и план проекта с четкими сроками.</p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Дизайн и прототипы</h3>
+                <p class="step-description">Создаю wireframes и дизайн-макеты, учитывая UX принципы и ваши пожелания. Вносим правки до полного утверждения.</p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Разработка</h3>
+                <p class="step-description">Пишу чистый, оптимизированный код. Показываю промежуточные результаты, чтобы вы контролировали процесс.</p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Тестирование</h3>
+                <p class="step-description">Проверяю работу на всех устройствах и браузерах. Оптимизирую производительность и исправляю все найденные ошибки.</p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="step-number">5</div>
+                <h3 class="step-title">Запуск и поддержка</h3>
+                <p class="step-description">Настраиваю хостинг, делаю запуск. Предоставляю инструкции и 30 дней бесплатной технической поддержки.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2 class="section-title fade-in">Отзывы клиентов</h2>
+        <p class="section-subtitle fade-in">Что говорят о моей работе</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">"Элина создала для нас интернет-магазин, который превзошел все ожидания. Продажи выросли в 3 раза за первые два месяца. Очень профессиональный подход и отличная коммуникация."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">МК</div>
+                    <div class="author-info">
+                        <h4>Михаил Козлов</h4>
+                        <p>Директор, "Мебель Комфорт"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">"Заказывали CRM для нашей клиники. Элина полностью поняла наши потребности и создала именно то, что нужно. Сэкономили кучу времени на рутинных задачах."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ЕС</div>
+                    <div class="author-info">
+                        <h4>Елена Смирнова</h4>
+                        <p>Главврач, "Дентал Клиник"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">"Лендинг для наших курсов просто огонь! Конверсия увеличилась больше чем в 2 раза. Элина учла все наши пожелания и добавила свои профессиональные решения."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">АП</div>
+                    <div class="author-info">
+                        <h4>Алексей Петров</h4>
+                        <p>Основатель, "IT Academy"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">"Работать с Элиной - одно удовольствие. Всегда на связи, делает все в срок, предлагает улучшения. Маркетплейс работает стабильно уже полгода без единой проблемы."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ДЛ</div>
+                    <div class="author-info">
+                        <h4>Дмитрий Лебедев</h4>
+                        <p>CEO, "ServiceHub"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section fade-in">
+        <h2 class="cta-title">Готовы увеличить прибыль?</h2>
+        <p class="cta-subtitle">Обсудим ваш проект и найдем оптимальное решение для роста бизнеса. Первая консультация бесплатно.</p>
+        
+        <div class="cta-buttons">
+            <a href="https://t.me/annadev" class="btn-primary">Написать в Telegram</a>
+            <a href="mailto:anna@example.com" class="btn-secondary">Отправить Email</a>
+        </div>
+
+        <div class="guarantee">
+            🛡️ Гарантия качества 6 месяцев
+        </div>
+
+        <div class="contact-links">
+            <a href="https://t.me/Elina_Razina" class="contact-link">
+                💬 Telegram
+            </a>
+            <a href="mailto:razina_elina@mail.ru" class="contact-link">
+                📧 Email
+            </a>
+            <a href="https://wa.me/79112548531" class="contact-link">
+                📱 WhatsApp
+            </a>
+            <a href="https://github.com/erazina" class="contact-link">
+                🐱 GitHub
+            </a>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
+            <p><strong>Что дальше:</strong></p>
+            <p>1. Обсуждаем ваши задачи и цели (15-30 минут)</p>
+            <p>2. Получаете коммерческое предложение с точной стоимостью</p>
+            <p>3. Подписываем договор и начинаем работу</p>
+        </div>
+    </section>
+
+    <script>
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        }
+
+        // Fade in animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        function updateHeader() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.9)';
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            animateOnScroll();
+            updateHeader();
+        });
+
+        window.addEventListener('load', () => {
+            animateOnScroll();
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.service-card, .case-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate statistics on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number, .result-number');
+            stats.forEach(stat => {
+                const rect = stat.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const finalValue = stat.textContent;
+                    const isPercentage = finalValue.includes('%');
+                    const isNegative = finalValue.includes('-');
+                    const isPlusSign = finalValue.includes('+');
+                    const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                    
+                    let currentValue = 0;
+                    const increment = numericValue / 50;
+                    
+                    const timer = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= numericValue) {
+                            stat.textContent = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            let displayValue = Math.floor(currentValue);
+                            if (isPlusSign) displayValue = '+' + displayValue;
+                            if (isNegative) displayValue = '-' + displayValue;
+                            if (isPercentage) displayValue += '%';
+                            stat.textContent = displayValue;
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // Call animate stats on scroll
+        window.addEventListener('scroll', animateStats);
+        window.addEventListener('load', animateStats);
+    </script>
+</body>
+</html>
