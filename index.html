@@ -176,6 +176,23 @@
         /></div
     ></noscript>
     <!-- /Yandex.Metrika counter -->
+
+    <!-- Yandex.RTB -->
+    <script>
+      window.yaContextCb = window.yaContextCb || [];
+    </script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+
+    <!-- Yandex.RTB R-A-19491125-1 -->
+    <script>
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          blockId: "R-A-19491125-1",
+          type: "floorAd",
+          platform: "touch",
+        });
+      });
+    </script>
   </head>
 
   <body class="bg-[#0b1020] text-white">
