@@ -1,0 +1,91 @@
+<div
+  id="modalWindow"
+  class="bg-gray-900 border border-white/10 rounded-3xl p-8 max-w-lg w-full mx-4"
+>
+  <div class="flex justify-between items-start mb-6">
+    <h3 class="text-2xl font-bold">Обсудим ваш проект</h3>
+    <button
+      id="closeModalInner"
+      class="text-white/70 hover:text-white transition-colors text-2xl"
+    >
+      &times;
+    </button>
+  </div>
+
+  <form
+    id="modalForm"
+    class="grid gap-4 rounded-3xl border border-white/10 bg-[#0b1020]/80 p-6"
+  >
+    <input
+      name="name"
+      type="text"
+      class="w-full rounded-2xl border border-white/10 bg-[#0b1020] px-4 py-3 text-white outline-none focus:border-blue-400"
+      placeholder="Имя или компания"
+      required
+    />
+    <input
+      name="email"
+      type="text"
+      class="w-full rounded-2xl border border-white/10 bg-[#0b1020] px-4 py-3 text-white outline-none focus:border-blue-400"
+      placeholder="Email или телефон"
+      required
+    />
+    <textarea
+      name="message"
+      type="text"
+      rows="4"
+      class="w-full rounded-2xl border border-white/10 bg-[#0b1020] px-4 py-3 text-white outline-none focus:border-blue-400"
+      placeholder="Опишите задачу и желаемый результат"
+    ></textarea>
+    <input name="website" style="display: none" />
+    <button
+      id="contact-submit"
+      type="submit"
+      class="inline-flex items-center justify-center rounded-2xl bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-400"
+    >
+      Отправить заявку
+    </button>
+    <p id="contact-feedback" class="hidden text-sm"></p>
+  </form>
+
+  <!-- <form id="modalForm" class="space-y-6">
+    <div>
+      <label class="block text-sm font-medium text-white/70 mb-2"
+        >Ваше имя</label
+      >
+      <input
+        type="text"
+        required
+        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-blue-500"
+      />
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-white/70 mb-2"
+        >Телефон</label
+      >
+      <input
+        type="tel"
+        required
+        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-blue-500"
+      />
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-white/70 mb-2"
+        >Описание проекта</label
+      >
+      <textarea
+        rows="4"
+        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-blue-500 resize-none"
+        placeholder="Расскажите о вашем проекте..."
+      ></textarea>
+    </div>
+    <div class="pt-4 border-t border-white/10">
+      <button
+        type="submit"
+        class="w-full bg-blue-500 hover:bg-blue-400 px-6 py-4 rounded-2xl font-semibold transition-colors"
+      >
+        Отправить заявку
+      </button>
+    </div>
+  </form> -->
+</div>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+Sitemap: https://erazina.github.io/sitemap.xml
