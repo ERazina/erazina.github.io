@@ -1,9 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /contacts.html
-Allow: /services.html
-Allow: /portfolio.html
 
 Disallow: /node_modules/
 Disallow: /.git/
@@ -11,17 +7,4 @@ Disallow: /dist/
 Disallow: /*.json$
 Disallow: /*.xml$
 
-# Ускорение краулинга
-Crawl-delay: 1
-
-# Ссылка на sitemap
-Sitemap: https://yoursite.com/sitemap.xml
-
-# Google-specific rules
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Yandex-specific rules
-User-agent: Yandex
-Allow: /
+Sitemap: https://erazina.github.io/sitemap.xml
