@@ -21,8 +21,8 @@
       property="og:description"
       content="Создание сайтов с SEO, адаптивным дизайном и фокусом на заявки для бизнеса."
     />
-    <meta property="og:image" content="/preview.jpg" />
-    <meta property="og:url" content="https://your-site.com/" />
+    <meta property="og:image" content="https://erazina.github.io/me.jpeg" />
+    <meta property="og:url" content="https://erazina.github.io/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Elina Razina — создание сайтов" />
     <meta property="og:locale" content="ru_RU" />
@@ -32,18 +32,23 @@
       name="twitter:description"
       content="Создание сайтов с SEO, адаптивным дизайном и фокусом на заявки для бизнеса."
     />
-    <meta name="twitter:image" content="/preview.jpg" />
-    <link rel="canonical" href="https://your-site.com/" />
-    <link rel="alternate" href="https://your-site.com/" hreflang="ru" />
+    <meta name="twitter:image" content="https://erazina.github.io/me.jpeg" />
+    <link rel="canonical" href="https://erazina.github.io/" />
+    <link rel="alternate" href="https://erazina.github.io/" hreflang="ru" />
+    <link rel="icon" href="/vite.svg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Elina Razina",
         "jobTitle": "Frontend Developer",
-        "url": "https://your-site.com",
+        "url": "https://erazina.github.io/",
         "description": "Frontend разработчик. Создание сайтов и лендингов под ключ для бизнеса.",
-        "sameAs": ["https://t.me/yourusername"]
+        "sameAs": [
+          "https://t.me/Elina_Razina",
+          "https://github.com/erazina",
+          "https://www.linkedin.com/in/elina-razina/"
+        ]
       }
     </script>
 
@@ -52,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Elina Razina",
-        "url": "https://your-site.com",
+        "url": "https://erazina.github.io/",
         "description": "Создание современных сайтов и лендингов для бизнеса."
       }
     </script>
@@ -66,19 +71,19 @@
             "@type": "ListItem",
             "position": 1,
             "name": "Главная",
-            "item": "https://your-site.com/"
+            "item": "https://erazina.github.io/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Квиз",
-            "item": "https://your-site.com/#quiz"
+            "item": "https://erazina.github.io/#quiz"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Контакты",
-            "item": "https://your-site.com/#contacts"
+            "item": "https://erazina.github.io/#contacts"
           }
         ]
       }
@@ -121,10 +126,9 @@
     <link rel="apple-touch-icon" href="/assets/favicon-CXWM6pJ7.png" />
     <link rel="shortcut icon" href="/assets/favicon-CXWM6pJ7.png" />
 
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <script type="module" crossorigin src="/assets/main-C-Ku5GUX.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/main-BFKButry.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-1hB7vL2k.css">
+    <script type="module" crossorigin src="/assets/main-BFc9FMba.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-bQQmraB7.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BfIPmDRG.css">
     <link rel="stylesheet" crossorigin href="/assets/main-BAM4nqDP.css">
   </head>
 
@@ -147,11 +151,12 @@
           <a href="#contacts">Контакты</a>
         </nav>
 
-        <div
+        <a
+          href="#contacts"
           class="open-modal bg-blue-500 hover:bg-blue-400 px-4 py-2 rounded-xl text-sm font-medium"
         >
           Обсудить проект
-        </div>
+        </a>
       </div>
     </header>
     <main>
@@ -256,6 +261,7 @@
               class="w-full max-w-sm aspect-square rounded-3xl overflow-hidden border border-white/10 bg-white/10"
             >
               <img
+                loading="lazy"
                 src="/assets/me-hJhOREB9.jpeg"
                 alt="Создаю сайты и лендинги для бизнеса"
                 class="w-full h-full object-cover"
@@ -663,6 +669,7 @@
                     src="/assets/header_so-Cd4JgXzt.png"
                     alt="Сайт салона красоты"
                     class="w-full h-full object-cover rounded-xl"
+                    loading="lazy"
                   />
                 </div>
                 <p class="mt-4 font-medium">Сайт салона красоты</p>
@@ -681,6 +688,7 @@
                     src="/assets/portfolio3-BTH4nId2.jpg"
                     alt="Пример работы"
                     class="w-full h-full object-cover rounded-xl"
+                    loading="lazy"
                   />
                 </div>
                 <p class="mt-4 font-medium">Портфолио</p>
