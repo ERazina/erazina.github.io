@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      Разработка сайта для бьюти-мастера / салона красоты | Кейс веб-разработки
+    </title>
+
+    <meta
+      name="description"
+      content="Кейс разработки сайта для бьюти-мастера / салона красоты. Лендинг с SEO-оптимизацией, записью клиентов, адаптивным дизайном и высокой конверсией."
+    />
+
+    <meta
+      name="keywords"
+      content="сайт для салона красоты, сайт бьюти мастера, лендинг косметология, создание сайта beauty, разработка сайта для мастера"
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://erazina.github.io/beauty-case.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Кейс: сайт для бьюти-мастера" />
+    <meta
+      property="og:description"
+      content="SEO-лендинг для салона красоты или бьюти-мастера"
+    />
+    <meta property="og:type" content="article" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="./sendForm.js"></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Разработка сайтов для бьюти-мастеров и салонов красоты",
+        "areaServed": ["Москва", "Санкт-Петербург"],
+        "serviceType": "Web development",
+        "provider": {
+          "@type": "Person",
+          "name": "Frontend Developer"
+        }
+      }
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js?id=110098330",
+        "ym",
+      );
+
+      ym(110098330, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/110098330"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
+  </head>
+
+  <body class="bg-gray-900 text-white">
+    <!-- HEADER -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-[#0b1020]/80 backdrop-blur border-b border-white/10"
+    >
+      <div
+        class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4"
+      >
+        <a href="./index.html" class="font-bold text-lg">WebDev</a>
+
+        <nav class="hidden md:flex gap-6 text-sm text-white/70">
+          <a href="./index.html#about">Обо мне</a>
+          <a href="./index.html#services">Услуги</a>
+          <a href="./index.html#works">Работы</a>
+          <a href="./index.html#faq">FAQ</a>
+          <a href="./index.html#contacts">Контакты</a>
+        </nav>
+
+        <a
+          href="./index.html/#contacts"
+          class="open-modal bg-blue-500 hover:bg-blue-400 px-4 py-2 rounded-xl text-sm font-medium cursor-pointer"
+        >
+          Обсудить проект
+        </a>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="pt-32 px-6 pb-24">
+      <div class="max-w-6xl mx-auto">
+        <!-- HEADER -->
+        <div class="max-w-4xl">
+          <div
+            class="inline-flex items-center gap-2 text-sm text-pink-400 bg-pink-500/10 border border-pink-500/20 px-4 py-2 rounded-full"
+          >
+            Кейс клиента
+          </div>
+
+          <h1 class="text-4xl md:text-5xl font-bold mt-6">
+            Разработка сайта для бьюти-мастера и салона красоты
+          </h1>
+
+          <p class="mt-6 text-white/70 text-lg leading-8">
+            Кейс создания SEO-лендинга для бьюти-мастера. Сайт помогает получать
+            заявки на услуги: косметология, ресницы, брови, уходовые процедуры.
+          </p>
+        </div>
+
+        <!-- IMAGE -->
+        <div
+          class="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-white/5"
+        >
+          <img src="./src/assets/header_so.png" class="w-full object-cover" />
+        </div>
+
+        <!-- INFO -->
+        <div class="grid lg:grid-cols-3 gap-6 mt-12">
+          <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+            <div class="text-sm text-white/50">Ниша</div>
+            <div class="mt-2 text-xl font-semibold">Beauty / Косметология</div>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+            <div class="text-sm text-white/50">Тип проекта</div>
+            <div class="mt-2 text-xl font-semibold">Лендинг</div>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+            <div class="text-sm text-white/50">Срок разработки</div>
+            <div class="mt-2 text-xl font-semibold">7–10 дней</div>
+          </div>
+        </div>
+
+        <!-- TASK -->
+        <section class="mt-24">
+          <h2 class="text-3xl font-bold">Задача клиента</h2>
+
+          <div class="mt-8 bg-white/5 border border-white/10 rounded-3xl p-8">
+            <ul class="space-y-4 text-white/70">
+              <li>✔ Создать современный сайт для услуг красоты</li>
+              <li>✔ Увеличить количество записей на процедуры</li>
+              <li>✔ Сделать удобную онлайн-запись</li>
+              <li>✔ Повысить доверие клиентов</li>
+              <li>✔ Подготовить сайт под SEO-продвижение</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- BEFORE / AFTER -->
+        <section class="mt-24">
+          <h2 class="text-3xl font-bold">Было / Стало</h2>
+
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-red-500/10 border border-red-500/20 rounded-3xl p-8">
+              <h3 class="text-xl font-semibold text-red-300">До</h3>
+              <ul class="mt-6 space-y-3 text-white/70">
+                <li>✖ Нет сайта</li>
+                <li>✖ Нет онлайн-записи</li>
+                <li>✖ Нет доверия клиентов</li>
+                <li>✖ Нет SEO-продвижения</li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-green-500/10 border border-green-500/20 rounded-3xl p-8"
+            >
+              <h3 class="text-xl font-semibold text-green-300">После</h3>
+              <ul class="mt-6 space-y-3 text-white/70">
+                <li>✔ Современный стильный дизайн</li>
+                <li>✔ Онлайн-запись на услуги</li>
+                <li>✔ Заявки и клиенты</li>
+                <li>✔ SEO-структура под Google/Яндекс</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SOLUTION -->
+        <section class="mt-24">
+          <h2 class="text-3xl font-bold">Решение</h2>
+
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              ✔ Разработан современный дизайн
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              ✔ Добавлена форма онлайн-записи
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              ✔ SEO-оптимизация структуры
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              ✔ Адаптация под мобильные устройства
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              ✔ Оптимизация скорости загрузки
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              ✔ Подключение заявок
+            </div>
+          </div>
+        </section>
+
+        <!-- RESULT -->
+        <section class="mt-24">
+          <div
+            class="bg-gradient-to-r from-pink-500/20 to-transparent border border-white/10 rounded-3xl p-8"
+          >
+            <h2 class="text-3xl font-bold">Результат</h2>
+
+            <div class="grid md:grid-cols-3 gap-6 mt-8">
+              <div class="bg-white/5 rounded-2xl p-6">
+                <div class="text-4xl font-bold text-pink-400">+Заявки</div>
+                <div class="mt-2 text-white/70">Рост записей на услуги</div>
+              </div>
+
+              <div class="bg-white/5 rounded-2xl p-6">
+                <div class="text-4xl font-bold text-pink-400">90+</div>
+                <div class="mt-2 text-white/70">PageSpeed</div>
+              </div>
+
+              <div class="bg-white/5 rounded-2xl p-6">
+                <div class="text-4xl font-bold text-pink-400">Mobile</div>
+                <div class="mt-2 text-white/70">Адаптивность</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="mt-24">
+          <div
+            class="bg-white/5 border border-white/10 rounded-3xl p-10 text-center"
+          >
+            <h2 class="text-3xl font-bold">
+              Хотите такой сайт для бьюти-бизнеса?
+            </h2>
+            <p class="mt-4 text-white/70">
+              Напишите мне — сделаю сайт под ваши услуги и заявки
+            </p>
+
+            <div
+              class="open-modal inline-flex mt-8 bg-pink-500 hover:bg-pink-400 px-8 py-4 rounded-xl font-medium cursor-pointer"
+            >
+              Обсудить проект
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <div
+      id="modalOverlay"
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50"
+    ></div>
+
+    <script type="module">
+      import { initModal } from "./modal.js";
+      initModal();
+    </script>
+  </body>
+</html>
