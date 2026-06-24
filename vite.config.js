@@ -1,9 +1,5 @@
 import { defineConfig } from "vite";
-
-// export default defineConfig({
-//   // Tailwind is loaded via PostCSS in postcss.config.js
-
-// });
+import { resolve } from "path";
 
 export default defineConfig({
   base: "/",
@@ -11,8 +7,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: "index.html",
-        case: "case.html",
+        main: resolve(__dirname, "index.html"),
+        repair: resolve(__dirname, "repair-case.html"),
+        beauty: resolve(__dirname, "beauty-case.html"),
+        website: resolve(__dirname, "website-development.html"),
       },
     },
   },
