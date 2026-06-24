@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://elinarazina.github.io/sitemap.xml
+Sitemap: https://erazina.github.io/sitemap.xml
