@@ -7,7 +7,7 @@
       name="description"
       content="Элина Разина — Lead Frontend Engineer. React, TypeScript, Next.js."
     />
-    <meta name="theme-color" content="#0d0d0f" />
+    <meta name="theme-color" content="#f4f1ea" />
 
     <meta property="og:title" content="Элина Разина — Lead Frontend Engineer" />
     <meta
@@ -21,16 +21,17 @@
 
     <style>
       :root {
-        --background: #0d0d0f;
-        --surface: #121216;
-        --surface-hover: #18181d;
-        --text: #f4f2ef;
-        --muted: #9c9ba3;
-        --line: #29282e;
-        --accent: #ff6b35;
-        --accent-dark: #de5524;
-        --status: #78d58b;
-        --status-ring: rgba(120, 213, 139, 0.32);
+        --background: #f4f1ea;
+        --surface: #fffdf9;
+        --surface-hover: #f8f4ed;
+        --text: #202024;
+        --muted: #68666b;
+        --soft: #8b8780;
+        --line: #ded9cf;
+        --accent: #f15b2a;
+        --accent-dark: #d94719;
+        --status: #39a85a;
+        --status-ring: rgba(57, 168, 90, 0.28);
       }
 
       * {
@@ -38,7 +39,7 @@
       }
 
       html {
-        color-scheme: dark;
+        color-scheme: light;
       }
 
       body {
@@ -48,17 +49,12 @@
         display: grid;
         place-items: center;
         color: var(--text);
-        background: linear-gradient(
-            rgba(255, 255, 255, 0.018) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.018) 1px,
-            transparent 1px
-          ),
-          var(--background);
-        background-size: 44px 44px;
+        background-color: var(--background);
+        background-image: radial-gradient(
+          rgba(32, 32, 36, 0.055) 0.7px,
+          transparent 0.7px
+        );
+        background-size: 18px 18px;
         font-family:
           Inter,
           ui-sans-serif,
@@ -81,9 +77,11 @@
         padding: clamp(30px, 7vw, 74px);
         overflow: hidden;
         border: 1px solid var(--line);
-        border-radius: 26px;
+        border-radius: 24px;
         background: var(--surface);
-        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        box-shadow:
+          0 2px 0 rgba(255, 255, 255, 0.9) inset,
+          0 24px 60px rgba(62, 51, 38, 0.12);
       }
 
       .page::after {
@@ -91,9 +89,11 @@
         position: absolute;
         top: 0;
         right: clamp(28px, 7vw, 70px);
-        width: 68px;
-        height: 4px;
+        width: 76px;
+        height: 5px;
         background: var(--accent);
+        transform: rotate(-1.5deg);
+        transform-origin: right center;
       }
 
       .topline {
@@ -108,9 +108,9 @@
         display: inline-flex;
         align-items: center;
         gap: 11px;
-        color: #c9c8ce;
+        color: #55535a;
         font-size: 13px;
-        font-weight: 650;
+        font-weight: 700;
         letter-spacing: 0.075em;
         text-transform: uppercase;
       }
@@ -122,7 +122,7 @@
         flex: 0 0 auto;
         border-radius: 50%;
         background: var(--status);
-        box-shadow: 0 0 0 3px rgba(120, 213, 139, 0.08);
+        box-shadow: 0 0 0 3px rgba(57, 168, 90, 0.09);
       }
 
       .status-dot::after {
@@ -150,9 +150,9 @@
       }
 
       .experience {
-        color: #6f6e76;
+        color: var(--soft);
         font-size: 13px;
-        font-weight: 550;
+        font-weight: 600;
         white-space: nowrap;
       }
 
@@ -162,7 +162,7 @@
         font-size: clamp(50px, 9vw, 94px);
         line-height: 0.93;
         letter-spacing: -0.064em;
-        font-weight: 760;
+        font-weight: 780;
       }
 
       .role {
@@ -171,12 +171,12 @@
         font-size: clamp(23px, 4vw, 37px);
         line-height: 1.2;
         letter-spacing: -0.028em;
-        font-weight: 560;
+        font-weight: 580;
       }
 
       .companies {
         margin: 13px 0 0;
-        color: #6f6e76;
+        color: var(--soft);
         font-size: 14px;
         line-height: 1.5;
       }
@@ -192,10 +192,10 @@
         padding: 9px 13px;
         border: 1px solid var(--line);
         border-radius: 9px;
-        background: #101014;
-        color: #d6d4d8;
+        background: #faf7f1;
+        color: #454349;
         font-size: 14px;
-        font-weight: 620;
+        font-weight: 650;
       }
 
       .actions {
@@ -212,13 +212,13 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        border: 1px solid var(--line);
+        border: 1px solid #cbc5bb;
         border-radius: 11px;
         background: transparent;
         color: var(--text);
         text-decoration: none;
         font-size: 15px;
-        font-weight: 670;
+        font-weight: 700;
         transition:
           transform 160ms ease,
           border-color 160ms ease,
@@ -233,19 +233,20 @@
 
       .button:hover {
         transform: translateY(-2px);
-        border-color: #44434a;
+        border-color: #aaa399;
         background: var(--surface-hover);
       }
 
       .button:focus-visible {
-        outline: 3px solid rgba(255, 107, 53, 0.24);
+        outline: 3px solid rgba(241, 91, 42, 0.2);
         outline-offset: 3px;
       }
 
       .button-primary {
         border-color: var(--accent);
         background: var(--accent);
-        color: #17110e;
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(241, 91, 42, 0.18);
       }
 
       .button-primary:hover {
@@ -260,8 +261,8 @@
         align-items: center;
         justify-content: space-between;
         gap: 20px;
-        border-top: 1px solid #242329;
-        color: #706f77;
+        border-top: 1px solid var(--line);
+        color: var(--soft);
         font-size: 12px;
       }
 
@@ -270,7 +271,7 @@
       }
 
       .footer a:hover {
-        color: #aaa8af;
+        color: var(--text);
       }
 
       @media (max-width: 640px) {
@@ -342,6 +343,7 @@
       }
     </style>
   </head>
+
   <body>
     <main class="page">
       <div class="topline">
@@ -414,6 +416,14 @@
             />
           </svg>
           Telegram
+        </a>
+        <a
+          class="button"
+          href="https://max.ru/u/f9LHodD0cOKFGLDCQ1alx_ttaB8rTE_2M3b-uardY3H0HpIAzQYinmfzHr8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Max
         </a>
       </div>
 
