@@ -12,7 +12,6 @@ export default defineConfig({
         beauty: resolve(__dirname, "beauty-case.html"),
         website: resolve(__dirname, "website-development.html"),
         resume: resolve(__dirname, "resume.html"),
-        resume: resolve(__dirname, "resume.html"),
       },
     },
   },

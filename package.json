@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "copy-pdf": "shx mkdir -p public && shx cp Elina_Razina_Resume.pdf public/",
+    "build": "npm run copy-pdf && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -14,6 +15,7 @@
     "autoprefixer": "^10.5.0",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.15",
+    "shx": "^0.4.0",
     "tailwindcss": "^3.4.19",
     "vite": "^8.0.12",
     "vite-plugin-sitemap": "^0.8.2"
