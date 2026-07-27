@@ -13,7 +13,12 @@ const owners = [
 ];
 
 const columns = [
-  { id: "backlog", title: "Backlog", hint: "Ideas & discovery", tone: "neutral" },
+  {
+    id: "backlog",
+    title: "Backlog",
+    hint: "Ideas & discovery",
+    tone: "neutral",
+  },
   { id: "progress", title: "In progress", hint: "Building now", tone: "blue" },
   { id: "review", title: "Review", hint: "Validation", tone: "violet" },
   { id: "done", title: "Done", hint: "Shipped", tone: "green" },
@@ -224,14 +229,7 @@ function TaskCard({ task, onOpen, onDragStart }) {
   );
 }
 
-function Board({
-  tasks,
-  onOpen,
-  onMove,
-  search,
-  priority,
-  onClearFilters,
-}) {
+function Board({ tasks, onOpen, onMove, search, priority, onClearFilters }) {
   const [draggedTask, setDraggedTask] = useState(null);
   const normalizedSearch = search.trim().toLowerCase();
   const filteredTasks = tasks.filter((task) => {
@@ -327,7 +325,10 @@ function Insights({ tasks }) {
       <div className="metric-grid">
         <article className="metric-card metric-card--hero">
           <span className="metric-card__label">Sprint completion</span>
-          <div className="progress-ring" style={{ "--progress": `${progress}%` }}>
+          <div
+            className="progress-ring"
+            style={{ "--progress": `${progress}%` }}
+          >
             <span>{progress}%</span>
           </div>
           <p>
@@ -562,7 +563,11 @@ function CreateTaskModal({ onClose, onCreate }) {
             </label>
           </div>
           <footer className="modal__actions">
-            <button className="button button--ghost" type="button" onClick={onClose}>
+            <button
+              className="button button--ghost"
+              type="button"
+              onClick={onClose}
+            >
               Cancel
             </button>
             <button className="button button--primary" type="submit">
@@ -679,7 +684,11 @@ function TaskDrawer({ task, onClose, onUpdate, onDelete }) {
           >
             Delete task
           </button>
-          <button className="button button--primary" type="button" onClick={onClose}>
+          <button
+            className="button button--primary"
+            type="button"
+            onClick={onClose}
+          >
             Done
           </button>
         </footer>
@@ -731,9 +740,13 @@ function Sidebar({ view, onViewChange, theme, onThemeChange }) {
       </div>
 
       <div className="sidebar__footer">
-        <a href="/" aria-label="Back to portfolio">
+        <a
+          href="/resume"
+          aria-label="Back to 
+        resume"
+        >
           <span>←</span>
-          Portfolio
+          Resume
         </a>
         <button
           type="button"
@@ -809,7 +822,9 @@ function ProductDemo() {
 
   function updateTask(taskId, patch) {
     setTasks((current) =>
-      current.map((task) => (task.id === taskId ? { ...task, ...patch } : task)),
+      current.map((task) =>
+        task.id === taskId ? { ...task, ...patch } : task,
+      ),
     );
     setNotice("Task updated");
   }
@@ -878,7 +893,9 @@ function ProductDemo() {
           <header className="page-heading">
             <div>
               <span className="page-heading__eyebrow">Orbit / Sprint 22</span>
-              <h1>{view === "board" ? "Delivery board" : "Delivery insights"}</h1>
+              <h1>
+                {view === "board" ? "Delivery board" : "Delivery insights"}
+              </h1>
               <p>
                 {view === "board"
                   ? "Plan, prioritize, and move work from idea to release."
@@ -913,7 +930,11 @@ function ProductDemo() {
                     aria-label="Search tasks"
                   />
                 </label>
-                <div className="filter-group" role="group" aria-label="Priority filter">
+                <div
+                  className="filter-group"
+                  role="group"
+                  aria-label="Priority filter"
+                >
                   {["all", "high", "medium", "low"].map((item) => (
                     <button
                       className={priority === item ? "is-active" : ""}
