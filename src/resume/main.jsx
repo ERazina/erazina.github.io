@@ -2,9 +2,14 @@ import { Fragment, StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import avatarUrl from "../assets/me.jpeg";
 import "../styles.css";
-import { languages, translations } from "./translations.js";
+import {
+  languages,
+  resumeFiles,
+  translations,
+} from "./translations.js";
 
 const STORAGE_KEY = "resume-language";
+const THEME_STORAGE_KEY = "resume-theme";
 const DEFAULT_LANGUAGE = "ru";
 
 function getInitialLanguage() {
@@ -17,6 +22,17 @@ function getInitialLanguage() {
   return navigator.language.toLowerCase().startsWith("en")
     ? "en"
     : DEFAULT_LANGUAGE;
+}
+
+function getInitialTheme() {
+  const documentTheme = document.documentElement.dataset.theme;
+  if (documentTheme === "light" || documentTheme === "dark") {
+    return documentTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 function DownloadIcon() {
@@ -109,7 +125,11 @@ function BriefcaseIcon() {
 
 function LanguageSwitcher({ language, onChange, text }) {
   return (
-    <div className="language-switcher" aria-label={text.languageLabel}>
+    <div
+      className="language-switcher"
+      role="group"
+      aria-label={text.languageLabel}
+    >
       {languages.map((item) => (
         <button
           className={`language-switcher__button${
@@ -129,9 +149,38 @@ function LanguageSwitcher({ language, onChange, text }) {
   );
 }
 
+function ThemeSwitcher({ theme, onChange, text }) {
+  const isDark = theme === "dark";
+  const nextTheme = isDark ? "light" : "dark";
+  const actionLabel = isDark
+    ? text.enableLightTheme
+    : text.enableDarkTheme;
+
+  return (
+    <button
+      className="theme-switcher"
+      type="button"
+      data-theme={theme}
+      aria-label={actionLabel}
+      aria-pressed={isDark}
+      title={actionLabel}
+      onClick={() => onChange(nextTheme)}
+    >
+      <span className="theme-switcher__sun" aria-hidden="true">
+        ☀︎
+      </span>
+      <span className="theme-switcher__moon" aria-hidden="true">
+        ☾
+      </span>
+    </button>
+  );
+}
+
 function ResumeApp() {
   const [language, setLanguage] = useState(getInitialLanguage);
+  const [theme, setTheme] = useState(getInitialTheme);
   const text = translations[language];
+  const resumeFile = resumeFiles[language] ?? resumeFiles[DEFAULT_LANGUAGE];
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -146,13 +195,28 @@ function ResumeApp() {
     window.history.replaceState({}, "", url);
   }, [language, text]);
 
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "dark" ? "#11100f" : "#f7f4ee");
+  }, [theme]);
+
   return (
     <main className="profile">
-      <LanguageSwitcher
-        language={language}
-        onChange={setLanguage}
-        text={text}
-      />
+      <div
+        className="resume-controls"
+        role="group"
+        aria-label={text.settingsLabel}
+      >
+        <ThemeSwitcher theme={theme} onChange={setTheme} text={text} />
+        <LanguageSwitcher
+          language={language}
+          onChange={setLanguage}
+          text={text}
+        />
+      </div>
 
       <section className="hero" aria-labelledby="profile-title">
         <div className="hero__top">
@@ -205,8 +269,8 @@ function ResumeApp() {
           <nav className="actions" aria-label={text.linksLabel}>
             <a
               className="button button--primary"
-              href={`${import.meta.env.BASE_URL}Elina_Razina_Resume.pdf`}
-              download
+              href={`${import.meta.env.BASE_URL}${resumeFile.path}`}
+              download={resumeFile.downloadName}
             >
               <DownloadIcon />
               {text.download}

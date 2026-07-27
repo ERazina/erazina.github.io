@@ -36,7 +36,10 @@ a {
 
 /* @layer base { */
 :root {
+  color-scheme: light;
   --page: #f7f4ee;
+  --page-start: #faf8f3;
+  --page-glow: rgba(255, 255, 255, 0.95);
   --surface: rgba(255, 255, 255, 0.76);
   --surface-strong: #fffdfa;
   --text: #19191d;
@@ -49,6 +52,63 @@ a {
   --status-soft: rgba(35, 178, 73, 0.12);
   --status-ring: rgba(35, 178, 73, 0.22);
   --shadow: 0 24px 70px rgba(82, 68, 52, 0.09);
+  --control-border: rgba(63, 58, 51, 0.12);
+  --control-surface: rgba(255, 253, 250, 0.82);
+  --control-shadow: 0 8px 30px rgba(82, 68, 52, 0.08);
+  --avatar-border: rgba(44, 42, 39, 0.1);
+  --avatar-background: #eee8df;
+  --avatar-shadow: 0 16px 34px rgba(74, 61, 47, 0.09);
+  --status-border: rgba(35, 178, 73, 0.08);
+  --status-surface: rgba(225, 246, 224, 0.74);
+  --status-text: #25262a;
+  --status-shadow: 0 8px 24px rgba(35, 178, 73, 0.07);
+  --button-border: rgba(63, 58, 51, 0.16);
+  --button-surface: rgba(255, 255, 255, 0.56);
+  --button-text: #212126;
+  --button-inset: rgba(255, 255, 255, 0.95);
+  --button-shadow: rgba(68, 58, 47, 0.025);
+  --button-hover-border: rgba(63, 58, 51, 0.3);
+  --button-hover-surface: rgba(255, 255, 255, 0.9);
+  --button-hover-inset: #fff;
+  --button-hover-shadow: rgba(68, 58, 47, 0.08);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #11100f;
+  --page-start: #1b1917;
+  --page-glow: rgba(92, 72, 56, 0.28);
+  --surface: rgba(37, 34, 31, 0.8);
+  --surface-strong: #26231f;
+  --text: #f5f1e9;
+  --muted: #b9b1a7;
+  --soft: #8f887f;
+  --line: #3c3833;
+  --accent: #ff9554;
+  --accent-dark: #ed7d39;
+  --status: #50d477;
+  --status-soft: rgba(80, 212, 119, 0.14);
+  --status-ring: rgba(80, 212, 119, 0.28);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --control-border: rgba(255, 255, 255, 0.1);
+  --control-surface: rgba(36, 33, 29, 0.82);
+  --control-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+  --avatar-border: rgba(255, 255, 255, 0.1);
+  --avatar-background: #302c27;
+  --avatar-shadow: 0 16px 34px rgba(0, 0, 0, 0.25);
+  --status-border: rgba(80, 212, 119, 0.16);
+  --status-surface: rgba(40, 91, 52, 0.48);
+  --status-text: #e8f8eb;
+  --status-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --button-border: rgba(255, 255, 255, 0.13);
+  --button-surface: rgba(255, 255, 255, 0.055);
+  --button-text: #f5f1e9;
+  --button-inset: rgba(255, 255, 255, 0.06);
+  --button-shadow: rgba(0, 0, 0, 0.12);
+  --button-hover-border: rgba(255, 255, 255, 0.24);
+  --button-hover-surface: rgba(255, 255, 255, 0.1);
+  --button-hover-inset: rgba(255, 255, 255, 0.09);
+  --button-hover-shadow: rgba(0, 0, 0, 0.22);
 }
 
 body {
@@ -56,10 +116,10 @@ body {
   color: var(--text);
   background: radial-gradient(
       circle at 50% 4%,
-      rgba(255, 255, 255, 0.95),
+      var(--page-glow),
       transparent 33rem
     ),
-    linear-gradient(180deg, #faf8f3 0%, var(--page) 100%);
+    linear-gradient(180deg, var(--page-start) 0%, var(--page) 100%);
   font-family:
     Inter,
     ui-sans-serif,
@@ -69,6 +129,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition:
+    color 220ms ease,
+    background-color 220ms ease;
 }
 
 button,
@@ -82,19 +145,82 @@ a {
   min-height: 100vh;
 }
 
-.language-switcher {
+.resume-controls {
   position: fixed;
   z-index: 10;
   top: 24px;
   right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-switcher {
   display: inline-flex;
   gap: 4px;
   padding: 5px;
-  border: 1px solid rgba(63, 58, 51, 0.12);
+  border: 1px solid var(--control-border);
   border-radius: 999px;
-  background: rgba(255, 253, 250, 0.82);
-  box-shadow: 0 8px 30px rgba(82, 68, 52, 0.08);
+  background: var(--control-surface);
+  box-shadow: var(--control-shadow);
   backdrop-filter: blur(14px);
+}
+
+.theme-switcher {
+  position: relative;
+  width: 76px;
+  height: 48px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  border: 1px solid var(--control-border);
+  border-radius: 999px;
+  background: var(--control-surface);
+  color: var(--muted);
+  box-shadow: var(--control-shadow);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+.theme-switcher::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 5px;
+  left: 5px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 4px 12px rgba(245, 130, 61, 0.22);
+  transition: transform 200ms ease;
+}
+
+.theme-switcher[data-theme="dark"]::before {
+  transform: translateX(28px);
+}
+
+.theme-switcher span {
+  position: relative;
+  z-index: 1;
+  font-size: 19px;
+  line-height: 1;
+  transition: color 160ms ease;
+}
+
+.theme-switcher[data-theme="light"] .theme-switcher__sun,
+.theme-switcher[data-theme="dark"] .theme-switcher__moon {
+  color: #fff;
+}
+
+.theme-switcher:hover::before {
+  background: var(--accent-dark);
+}
+
+.theme-switcher:focus-visible {
+  outline: 3px solid rgba(245, 130, 61, 0.24);
+  outline-offset: 3px;
 }
 
 .language-switcher__button {
@@ -165,10 +291,10 @@ a {
   width: 230px;
   aspect-ratio: 1;
   padding: 6px;
-  border: 1px solid rgba(44, 42, 39, 0.1);
+  border: 1px solid var(--avatar-border);
   border-radius: 50%;
   background: var(--surface-strong);
-  box-shadow: 0 16px 34px rgba(74, 61, 47, 0.09);
+  box-shadow: var(--avatar-shadow);
 }
 
 .avatar {
@@ -176,7 +302,7 @@ a {
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
-  background: #eee8df;
+  background: var(--avatar-background);
 }
 
 .status {
@@ -190,13 +316,13 @@ a {
   align-items: center;
   gap: 12px;
   white-space: nowrap;
-  border: 1px solid rgba(35, 178, 73, 0.08);
+  border: 1px solid var(--status-border);
   border-radius: 999px;
-  background: rgba(225, 246, 224, 0.74);
-  color: #25262a;
+  background: var(--status-surface);
+  color: var(--status-text);
   font-size: 18px;
   font-weight: 560;
-  box-shadow: 0 8px 24px rgba(35, 178, 73, 0.07);
+  box-shadow: var(--status-shadow);
 }
 
 .status::before,
@@ -371,16 +497,16 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  border: 1px solid rgba(63, 58, 51, 0.16);
+  border: 1px solid var(--button-border);
   border-radius: 13px;
-  background: rgba(255, 255, 255, 0.56);
-  color: #212126;
+  background: var(--button-surface);
+  color: var(--button-text);
   text-decoration: none;
   font-size: 21px;
   font-weight: 660;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 5px 14px rgba(68, 58, 47, 0.025);
+    0 1px 0 var(--button-inset) inset,
+    0 5px 14px var(--button-shadow);
   transition:
     transform 160ms ease,
     border-color 160ms ease,
@@ -390,11 +516,11 @@ h1 {
 
 .button:hover {
   transform: translateY(-3px);
-  border-color: rgba(63, 58, 51, 0.3);
-  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--button-hover-border);
+  background: var(--button-hover-surface);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 1) inset,
-    0 14px 24px rgba(68, 58, 47, 0.08);
+    0 1px 0 var(--button-hover-inset) inset,
+    0 14px 24px var(--button-hover-shadow);
 }
 
 .button:focus-visible {
@@ -490,7 +616,7 @@ h1 {
 }
 
 @media (max-width: 680px) {
-  .language-switcher {
+  .resume-controls {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -503,9 +629,25 @@ h1 {
     font-size: 12px;
   }
 
+  .theme-switcher {
+    width: 68px;
+    height: 44px;
+  }
+
+  .theme-switcher::before {
+    top: 5px;
+    left: 5px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .theme-switcher[data-theme="dark"]::before {
+    transform: translateX(25px);
+  }
+
   .hero {
     min-height: auto;
-    padding: 26px 16px 34px;
+    padding: 82px 16px 34px;
   }
 
   .hero__top {

@@ -6,6 +6,22 @@ export const languages = [
   { code: "de", label: "DE", enabled: false },
 ];
 
+export const resumeFiles = {
+  ru: {
+    path: "Elina_Razina_Resume.pdf",
+    downloadName: "Elina_Razina_Resume_RU.pdf",
+  },
+  en: {
+    path: "Elina_Razina_Resume_EN.pdf",
+    downloadName: "Elina_Razina_Resume_EN.pdf",
+  },
+  // Add the German PDF to `public/` before enabling the German language.
+  de: {
+    path: "Elina_Razina_Resume_DE.pdf",
+    downloadName: "Elina_Razina_Resume_DE.pdf",
+  },
+};
+
 export const translations = {
   ru: {
     pageTitle: "Элина Разина — Lead Frontend Engineer",
@@ -27,6 +43,9 @@ export const translations = {
       "Разрабатываю интерфейсы на React и TypeScript, проектирую frontend-архитектуру, провожу code review и помогаю командам выпускать стабильные продукты.",
     languageLabel: "Выбор языка",
     germanSoon: "Немецкая версия — скоро",
+    settingsLabel: "Настройки отображения",
+    enableDarkTheme: "Включить тёмную тему",
+    enableLightTheme: "Включить светлую тему",
   },
   en: {
     pageTitle: "Elina Razina — Lead Frontend Engineer",
@@ -52,5 +71,8 @@ export const translations = {
       "I build interfaces with React and TypeScript, design frontend architecture, conduct code reviews, and help teams ship stable products.",
     languageLabel: "Choose language",
     germanSoon: "German version — coming soon",
+    settingsLabel: "Display settings",
+    enableDarkTheme: "Switch to dark theme",
+    enableLightTheme: "Switch to light theme",
   },
 };

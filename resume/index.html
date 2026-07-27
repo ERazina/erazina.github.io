@@ -33,6 +33,16 @@
     />
     <link rel="icon" href="/favicon.svg" />
     <title>Элина Разина — Lead Frontend Engineer</title>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("resume-theme");
+        const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme =
+          savedTheme || (prefersDark ? "dark" : "light");
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
     <script type="module" src="/src/resume/main.jsx"></script>
   </head>
   <body>
