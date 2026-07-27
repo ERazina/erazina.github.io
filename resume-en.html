@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="0; url=/resume/?lang=en" />
+    <link
+      rel="canonical"
+      href="https://erazina.github.io/resume/?lang=en"
+    />
+    <title>Elina Razina — Resume</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      params.set("lang", "en");
+      window.location.replace(
+        `/resume/?${params.toString()}${window.location.hash}`,
+      );
+    </script>
+  </head>
+  <body>
+    <p><a href="/resume/?lang=en">Open resume</a></p>
+  </body>
+</html>
