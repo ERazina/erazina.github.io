@@ -328,6 +328,21 @@ function ResumeApp() {
       <section className="details" id="details">
         <h2>{text.aboutTitle}</h2>
         <p>{text.about}</p>
+
+        <article className="projects-note">
+          <span className="projects-note__eyebrow">
+            {text.projectsEyebrow}
+          </span>
+          <h3>{text.projectsTitle}</h3>
+          <p>{text.projectsText}</p>
+          <a
+            className="projects-note__link"
+            href={`${import.meta.env.BASE_URL}app/`}
+          >
+            {text.projectsLink}
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
       </section>
     </main>
   );

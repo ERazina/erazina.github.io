@@ -8,7 +8,7 @@ export const languages = [
 
 export const resumeFiles = {
   ru: {
-    path: "Elina_Razina_Resume.pdf",
+    path: "Elina_Razina_Resume_RU.pdf",
     downloadName: "Elina_Razina_Resume_RU.pdf",
   },
   en: {
@@ -41,6 +41,11 @@ export const translations = {
     aboutTitle: "Коротко обо мне",
     about:
       "Разрабатываю интерфейсы на React и TypeScript, проектирую frontend-архитектуру, провожу code review и помогаю командам выпускать стабильные продукты.",
+    projectsEyebrow: "Enterprise-проекты",
+    projectsTitle: "Проекты под NDA",
+    projectsText:
+      "Большинство моих коммерческих проектов — enterprise-приложения с закрытым доступом, защищённые NDA. Поэтому я не могу публиковать их исходный код или рабочие интерфейсы, но могу показать интерактивные demo-проекты, которые демонстрируют мои навыки в архитектуре, React, TypeScript, управлении состоянием, сложных интерфейсах и производительности.",
+    projectsLink: "Открыть интерактивный demo-проект",
     languageLabel: "Выбор языка",
     germanSoon: "Немецкая версия — скоро",
     settingsLabel: "Настройки отображения",
@@ -69,6 +74,11 @@ export const translations = {
     aboutTitle: "About me",
     about:
       "I build interfaces with React and TypeScript, design frontend architecture, conduct code reviews, and help teams ship stable products.",
+    projectsEyebrow: "Enterprise work",
+    projectsTitle: "NDA-protected projects",
+    projectsText:
+      "Most of my commercial work consists of enterprise applications with restricted access and is protected by NDAs. I cannot publish their source code or production interfaces, so I provide interactive demo projects that demonstrate my skills in frontend architecture, React, TypeScript, state management, complex UI, and performance optimization.",
+    projectsLink: "Explore the interactive demo",
     languageLabel: "Choose language",
     germanSoon: "German version — coming soon",
     settingsLabel: "Display settings",

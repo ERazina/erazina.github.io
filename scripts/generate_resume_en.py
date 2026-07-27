@@ -637,6 +637,21 @@ def build_story(photo_path):
                 label("Recommendation"),
                 p("Vladislav Mironov - Project Manager, Samolet"),
                 Spacer(1, 3),
+                label("Project access and NDA"),
+                p(
+                    "Most of my commercial projects are enterprise applications with "
+                    "restricted access and are protected by NDAs. I cannot publish their "
+                    "source code or production interfaces. Instead, I provide interactive "
+                    "demo projects that demonstrate my frontend architecture, React, "
+                    "TypeScript, state management, complex UI, accessibility, and "
+                    "performance optimization skills."
+                ),
+                p(
+                    "<b>Interactive demo:</b> "
+                    '<link href="https://erazina.github.io/app/" '
+                    'color="#F5823D">erazina.github.io/app/</link>'
+                ),
+                Spacer(1, 3),
                 label("About me"),
                 p(
                     "I have worked on enterprise products where UI stability, state "
